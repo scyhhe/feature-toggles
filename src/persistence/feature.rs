@@ -11,7 +11,7 @@ impl Default for FeatureState {
     }
 }
 
-#[derive(Queryable, Selectable)]
+#[derive(Queryable, Selectable, Insertable)]
 #[diesel(table_name = crate::persistence::schema::features)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Feature {

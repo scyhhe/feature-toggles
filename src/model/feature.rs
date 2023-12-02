@@ -16,8 +16,8 @@ impl Default for FeatureState {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Feature {
     id: Uuid,
-    name: String,
-    state: FeatureState,
+    pub name: String,
+    pub state: FeatureState,
 }
 
 impl Feature {
@@ -35,16 +35,5 @@ impl Feature {
         } else {
             false
         };
-    }
-
-    pub fn toggle(&mut self) -> Self {
-        Self {
-            id: self.id,
-            name: self.name.to_owned(),
-            state: match self.state {
-                FeatureState::Off => FeatureState::On,
-                FeatureState::On => FeatureState::Off,
-            },
-        }
     }
 }
